@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox minHeight="550.0" minWidth="1200.0" style="-fx-background-color: FFFFFF;" stylesheets="@../Css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagingsimulator.pagingsimulator.UI.Controller.UIMainMenuController">
+    <padding>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+    </padding>
+   <HBox alignment="CENTER_LEFT">
+      <children>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../img/logo.png" />
+            </image>
+         </ImageView>
+         <StackPane fx:id="snackBarPane" alignment="CENTER_LEFT" maxHeight="25.0" prefWidth="250.0" visible="false">
+            <children>
+               <Label fx:id="snackBarMessage" text="Label" />
+            </children>
+            <HBox.margin>
+               <Insets left="600.0" />
+            </HBox.margin>
+            <styleClass>
+               <String fx:value="alert-warning" />
+               <String fx:value="alert" />
+            </styleClass>
+         </StackPane>
+      </children>
+   </HBox>
+   <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+      <children>
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <Label layoutX="10.0" layoutY="10.0" styleClass="textFieldLabel" text="Paging algorithm" />
+               <ComboBox fx:id="pagingAlgorithmsComboBox" onAction="#pagingAlgorithmsComboBoxSelected" prefWidth="150.0" styleClass="comboBox" />
+               <Label styleClass="textFieldLabel" text="Random seed" />
+               <TextField fx:id="randomSeedTextField" maxWidth="250.0" minWidth="250.0" styleClass="textField" />
+               <Label styleClass="textFieldLabel" text="Simulation file" />
+               <HBox alignment="CENTER_LEFT" maxWidth="250.0" minWidth="250.0" prefWidth="200.0" spacing="10.0">
+                  <children>
+                     <TextField fx:id="operationsFileNameTextField" editable="false" maxWidth="120.0" minWidth="130.0" styleClass="textField" />
+                     <Button fx:id="loadOperationsFileButton" maxWidth="110.0" minWidth="110.0" mnemonicParsing="false" onAction="#loadOperationsFileButtonEvent" styleClass="btn-primary" text="SEARCH FILE">
+                        <padding>
+                           <Insets bottom="8.0" top="8.0" />
+                        </padding>
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <CheckBox fx:id="loadFileCheckBox" mnemonicParsing="false" onAction="#loadFileCheckEvent" text="Load operations by simulation file">
+                  <VBox.margin>
+                     <Insets bottom="15.0" top="55.0" />
+                  </VBox.margin>
+               </CheckBox>
+               <Label layoutX="10.0" layoutY="10.0" styleClass="textFieldLabel" text="Number of procceses" />
+               <ComboBox fx:id="numberOfProcessesComboBox" prefWidth="150.0" styleClass="comboBox" />
+               <Label styleClass="textFieldLabel" text="Number of operations" />
+               <ComboBox fx:id="numberOfOperationsComboBox" layoutX="10.0" layoutY="40.0" prefWidth="150.0" styleClass="comboBox" />
+            </children>
+         </VBox>
+      </children>
+      <VBox.margin>
+         <Insets bottom="50.0" top="20.0" />
+      </VBox.margin>
+   </HBox>
+   <HBox spacing="50.0">
+      <children>
+          <Button fx:id="startSimulationButton" onAction="#startSimulationButtonEvent" text="START SIMULATION">
+            <styleClass>
+               <String fx:value="btn-primary" />
+               <String fx:value="btn" />
+            </styleClass>
+         </Button>
+         <Button fx:id="downloadSimulationFileButton" disable="true" layoutX="10.0" layoutY="10.0" onAction="#downloadSimulationFileButtonEvent" text="DOWNLOAD FILE">
+            <styleClass>
+               <String fx:value="btn-primary-outlined" />
+               <String fx:value="btn" />
+            </styleClass>
+         </Button>
+      </children>
+      <VBox.margin>
+         <Insets />
+      </VBox.margin>
+   </HBox>
+</VBox>
